@@ -1,13 +1,22 @@
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { profile } from './src/data/profile.js'
 import { seo } from './src/data/seo.js'
-import { skillNames } from './src/data/skills.js'
 
 const rootDir = dirname(fileURLToPath(import.meta.url))
+
+// 內容資料都放在 JSON 檔（後台可直接讀寫），這裡用 fs 讀取，
+// 避免在 Node 端載入前端模組。
+function readJson(relativePath) {
+  return JSON.parse(readFileSync(resolve(rootDir, relativePath), 'utf8'))
+}
+
+const profile = readJson('src/data/profile.json')
+const skillNames = readJson('src/data/skills.json').skillGroups.flatMap((group) =>
+  group.items.map((item) => item.name),
+)
 
 /**
  * GitHub Pages 的 base path。

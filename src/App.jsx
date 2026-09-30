@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import AdminApp from './admin/AdminApp.jsx'
 import Footer from './components/Footer.jsx'
 import Navbar from './components/Navbar.jsx'
 import useDocumentMeta from './hooks/useDocumentMeta.js'
@@ -9,10 +11,30 @@ import Portfolio from './sections/Portfolio.jsx'
 import Projects from './sections/Projects.jsx'
 import Skills from './sections/Skills.jsx'
 
+// 後台入口：https://wallacechen0130.github.io/#/admin
+const ADMIN_HASH = '#/admin'
+
+function useHashRoute() {
+  const [hash, setHash] = useState(() => window.location.hash)
+
+  useEffect(() => {
+    const onChange = () => setHash(window.location.hash)
+    window.addEventListener('hashchange', onChange)
+    return () => window.removeEventListener('hashchange', onChange)
+  }, [])
+
+  return hash
+}
+
 // 頁面結構：Navbar + 七個 section + Footer。
 // section 的 id 必須與 src/data/navigation.js 一致，Navbar 的捲動高亮才會正確。
 export default function App() {
   useDocumentMeta()
+  const hash = useHashRoute()
+
+  if (hash.startsWith(ADMIN_HASH)) {
+    return <AdminApp />
+  }
 
   return (
     <>

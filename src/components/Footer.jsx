@@ -2,6 +2,7 @@ import { navigation } from '../data/navigation.js'
 import { activeLinks, profile } from '../data/profile.js'
 import Icon from './Icon.jsx'
 import SmartLink from './SmartLink.jsx'
+import VisitCounter from './VisitCounter.jsx'
 import './footer.css'
 
 export default function Footer() {
@@ -44,9 +45,10 @@ export default function Footer() {
         <p>
           © {year} {profile.name}. All rights reserved.
         </p>
-        <p className="footer__built">
-          Built with React + Vite · Deployed on GitHub Pages
-        </p>
+        <div className="footer__meta">
+          <VisitCounter />
+          <p className="footer__built">Built with React + Vite · Deployed on GitHub Pages</p>
+        </div>
       </div>
     </footer>
   )

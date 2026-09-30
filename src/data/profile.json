@@ -1,0 +1,89 @@
+{
+  "name": "陳品璁",
+  "nameZh": "",
+  "roleEn": "Student & Noob Developer",
+  "role": "學生 / 菜鳥開發者",
+  "tagline": "用 Python 寫 Bot 與 AI 應用，把學到的東西做成真的能跑的服務。",
+  "avatar": "images/avatar.jpg",
+  "avatarAlt": "陳品璁的照片",
+  "email": "wallacechen33@gmail.com",
+  "location": "台灣",
+  "focusAreas": [
+    "Python Bot 開發",
+    "AI / LLM 應用",
+    "遊戲開發",
+    "Bot 開發",
+    "演算法",
+    "Web 前端"
+  ],
+  "codeCard": {
+    "filename": "about-me.js",
+    "variable": "me",
+    "lines": [
+      { "key": "name", "value": "'陳品璁'" },
+      { "key": "role", "value": "'Student & Developer'" },
+      { "key": "focus", "value": "['AI', 'Bots', 'RL']" },
+      { "key": "building", "value": "'Telegram AI assistants'" }
+    ]
+  },
+  "about": {
+    "intro": "用 Python 寫 Bot 與 AI 應用，把學到的東西做成真的能跑的服務。",
+    "paragraphs": [
+      "我是一名正在學習資訊工程相關技術的學生，主要的開發語言是 Python。大部分時間都花在 Bot 開發上，從 Telegram 與 Discord 的訊息處理、指令設計，到第三方 API 整合與非同步架構，一步步把想法做成真的能跑的服務。",
+      "最近投入最多的是 AI 應用：把 LLM 與視覺模型接進 Bot 裡，做成能聊天、看得懂圖片、甚至能產生報告與簡報的助理；另外也做了一個 TETR.IO 風格的 Tetris AI，從自建規則引擎、啟發式教師，到模仿學習與 PPO 微調都是自己實作的。",
+      "除了 Bot，我也用 React + Vite 寫前端。這個作品集網站是自己設計、自己刻的，並透過 GitHub Actions 自動部署到 GitHub Pages。"
+    ],
+    "facts": [
+      { "id": "status", "label": "目前身份", "value": "學生" },
+      { "id": "languages", "label": "主要語言", "value": "C++ / Python / JavaScript" },
+      { "id": "focus", "label": "關注領域", "value": "AI / LLM、Unity、Bot" },
+      { "id": "location", "label": "所在地", "value": "台灣" }
+    ]
+  },
+  "contact": {
+    "heading": "一起做點東西",
+    "text": "目前持續在做 Bot 與 AI 應用，對 LLM 整合、強化學習與前端開發都很有興趣。有想法、合作機會或實習資訊都歡迎寄信給我。"
+  },
+  "links": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "icon": "github",
+      "href": "https://github.com/wallacechen0130",
+      "handle": "@wallacechen0130",
+      "description": "所有 Bot、AI 與前端專案的原始碼",
+      "enabled": true,
+      "primary": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "icon": "mail",
+      "href": "mailto:wallacechen33@gmail.com",
+      "handle": "wallacechen33@gmail.com",
+      "description": "合作、實習或任何問題都歡迎來信",
+      "enabled": true,
+      "primary": true
+    },
+    {
+      "id": "telegram",
+      "label": "Telegram",
+      "icon": "telegram",
+      "href": "",
+      "handle": "",
+      "description": "填入帳號或連結後，把「顯示」打開",
+      "enabled": false,
+      "primary": false
+    },
+    {
+      "id": "discord",
+      "label": "Discord",
+      "icon": "discord",
+      "href": "",
+      "handle": "",
+      "description": "填入帳號或連結後，把「顯示」打開",
+      "enabled": false,
+      "primary": false
+    }
+  ]
+}

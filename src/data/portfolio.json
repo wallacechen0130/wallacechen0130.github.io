@@ -1,0 +1,52 @@
+{
+  "portfolioCategories": [
+    "All",
+    "School Projects",
+    "Reports",
+    "Research",
+    "Experiments",
+    "Computer Science Portfolio"
+  ],
+  "portfolioItems": [
+    {
+      "id": "tetris-ai-design-doc",
+      "title": "TETR.IO 風格 Tetris AI 設計文件",
+      "category": "Research",
+      "type": "research",
+      "description": "從自建規則引擎、啟發式教師，到模仿學習與 PPO 微調的完整設計文件，包含七級難度控制的定義與訓練流程說明。",
+      "tags": ["Python", "Reinforcement Learning", "PPO"],
+      "date": null,
+      "url": "https://github.com/wallacechen0130/tetr_bot/tree/main/docs"
+    },
+    {
+      "id": "tetris-ai-experiment",
+      "title": "Tetris AI 訓練與難度保真度實驗",
+      "category": "Experiments",
+      "type": "experiment",
+      "description": "用自建環境產生訓練資料、訓練模仿學習模型，再以 PPO 微調，最後用難度保真度報表檢查 AI 打起來像不像對應等級的玩家。",
+      "tags": ["Imitation Learning", "PPO", "Jupyter"],
+      "date": null,
+      "url": "https://github.com/wallacechen0130/tetr_bot"
+    },
+    {
+      "id": "telegram-ai-bot",
+      "title": "Telegram AI 助理（Bot + LLM 應用）",
+      "category": "Experiments",
+      "type": "experiment",
+      "description": "把 LLM 與視覺模型接進 Telegram 的實驗專案：模組化 async 架構、長任務進度更新，以及報告／簡報的自動產生流程。",
+      "tags": ["Python", "DeepSeek API", "LLM"],
+      "date": null,
+      "url": null
+    },
+    {
+      "id": "csv-portfolio-github",
+      "title": "GitHub 專案總覽",
+      "category": "Computer Science Portfolio",
+      "type": "github",
+      "description": "所有 Bot、AI 與前端專案的原始碼都在 GitHub 上，包含這個作品集網站本身。",
+      "tags": ["Open Source", "GitHub"],
+      "date": null,
+      "url": "https://github.com/wallacechen0130?tab=repositories"
+    }
+  ]
+}

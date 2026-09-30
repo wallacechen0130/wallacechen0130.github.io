@@ -1,0 +1,669 @@
+/* 網站後台樣式（沿用網站的設計變數） */
+
+.admin {
+  min-height: 100vh;
+  background: var(--color-surface-alt);
+  padding-bottom: 6rem;
+}
+
+.admin--centered {
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* ---------- 登入卡片 ---------- */
+
+.admin-card {
+  width: min(100%, 26rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.admin-card--wide {
+  width: min(100%, 40rem);
+}
+
+.admin-card__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.admin-card__title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.admin-card__text {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.admin-card__text code,
+.admin-steps code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  background: var(--color-primary-soft);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-primary-strong);
+}
+
+.admin-card__note {
+  margin: 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.admin-steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--color-ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.admin-steps .af-btn {
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ---------- 頂部列 ---------- */
+
+.admin-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-bar__back {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-ink-soft);
+  transform: rotate(180deg);
+}
+
+.admin-bar__back:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.admin-bar__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--color-ink);
+}
+
+.admin-bar__sub {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+}
+
+.admin-bar__right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ---------- 分頁 ---------- */
+
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-tabs__spacer {
+  flex: 1;
+}
+
+.admin-tabs__counter {
+  margin-left: auto;
+}
+
+.admin-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-ink-soft);
+  font-size: 0.88rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.admin-tab:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.admin-tab.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.admin-tab__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e0a33a;
+}
+
+.admin-tab.is-active .admin-tab__dot {
+  background: #ffd88a;
+}
+
+/* ---------- 內容 ---------- */
+
+.admin-body {
+  padding: 1.5rem 1.25rem;
+}
+
+.admin-panel {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-xs);
+}
+
+.admin-panel__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-panel__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: var(--color-ink);
+}
+
+.admin-panel__hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.84rem;
+  color: var(--color-ink-muted);
+}
+
+.admin-panel__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.admin-loading {
+  margin: 0;
+  color: var(--color-ink-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- 欄位 ---------- */
+
+.af-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.af-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.af-field--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.af-field--inline .af-input {
+  min-width: 14rem;
+}
+
+.af-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.af-label small {
+  font-weight: 400;
+  font-size: 0.76rem;
+  color: var(--color-ink-muted);
+}
+
+.af-input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.af-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.12);
+}
+
+textarea.af-input {
+  resize: vertical;
+  min-height: 5rem;
+}
+
+.af-object {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+}
+
+.af-object__legend {
+  padding: 0 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: var(--color-ink);
+}
+
+.af-object__legend small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+.af-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+}
+
+.af-toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+}
+
+/* 清單 */
+
+.af-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.af-list__row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.af-list__row .af-input {
+  flex: 1;
+}
+
+.af-list__actions {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.af-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.af-icon-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.af-icon-btn--danger:hover {
+  color: #c0392b;
+  border-color: #c0392b;
+}
+
+.af-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  padding: 0.45rem 0.85rem;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-ink-soft);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.af-add:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* 物件清單 */
+
+.af-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.af-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.af-item__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--color-surface-alt);
+  cursor: pointer;
+  list-style: none;
+}
+
+.af-item__head::-webkit-details-marker {
+  display: none;
+}
+
+.af-item__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.af-item__tools {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.af-item__body {
+  padding: 0.85rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.af-item__body .af-object {
+  background: var(--color-surface);
+}
+
+/* 圖片欄位 */
+
+.af-image {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.af-image__preview {
+  flex: none;
+  width: 108px;
+  height: 108px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+  color: var(--color-ink-muted);
+  font-size: 0.72rem;
+}
+
+.af-image__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.af-image__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.af-image__buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+/* 按鈕 */
+
+.af-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    background-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.af-btn:hover:not(:disabled) {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.af-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.af-btn--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.af-btn--primary:hover:not(:disabled) {
+  background: var(--color-primary-strong);
+  color: #fff;
+}
+
+.af-btn--small {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.af-btn--block {
+  width: 100%;
+}
+
+.af-error {
+  margin: 0;
+  color: #c0392b;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.af-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* ---------- 原始 JSON ---------- */
+
+.admin-raw {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.admin-raw__area {
+  width: 100%;
+  min-height: 26rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* ---------- 底部儲存列 ---------- */
+
+.admin-savebar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 1.25rem;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 18px rgba(15, 37, 56, 0.06);
+}
+
+.admin-savebar__info {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.admin-savebar__hint {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--color-ink-muted);
+}
+
+.admin-savebar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.admin-notice {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.admin-notice--success {
+  color: #1d7a4a;
+}
+
+.admin-notice--error {
+  color: #c0392b;
+}
+
+.admin-notice--info {
+  color: var(--color-ink-soft);
+}
+
+@media (max-width: 640px) {
+  .admin-savebar__actions {
+    width: 100%;
+  }
+
+  .af-field--inline {
+    width: 100%;
+  }
+
+  .af-field--inline .af-input {
+    min-width: 0;
+  }
+}
