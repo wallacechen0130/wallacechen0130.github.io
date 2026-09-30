@@ -14,8 +14,8 @@
   <text x="90" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26" fill="#9FC9EC" letter-spacing="4">
     COMPUTER SCIENCE STUDENT &amp; DEVELOPER
   </text>
-  <text x="90" y="345" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="82" font-weight="700" fill="#FFFFFF">
-    Wallace Chen
+  <text x="90" y="345" font-family="system-ui, -apple-system, 'Noto Sans TC', 'Microsoft JhengHei', Segoe UI, Roboto, sans-serif" font-size="82" font-weight="700" fill="#FFFFFF">
+    陳品璁
   </text>
   <text x="90" y="420" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="30" fill="#CFE5FA">
     Portfolio — AI Assistants, Telegram / Discord Bots &amp; Reinforcement Learning

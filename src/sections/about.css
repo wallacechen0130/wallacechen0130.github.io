@@ -15,6 +15,7 @@
 
 .about__avatar-frame {
   position: relative;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius-xl);
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -24,7 +25,10 @@
 .about__avatar {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  /* 換成人物照時，裁切位置會偏向畫面上方（臉部通常在上半部） */
+  object-position: 50% 30%;
 }
 
 .about__facts {

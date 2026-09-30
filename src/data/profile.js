@@ -9,48 +9,48 @@
  * 避免部署後出現連到不存在帳號的壞連結。
  */
 export const profile = {
-  /** 顯示在 Hero 主標、Navbar 與 SEO 標題：Wallace Chen | Computer Science Student & Developer */
-  name: 'Wallace Chen',
+  /** 顯示在 Hero 主標、Navbar 與 SEO 標題：陳品璁 | Student & Noob Developer */
+  name: '陳品璁',
 
-  /** 中文姓名或暱稱（顯示在頁尾，可留空；留空時顯示 name） */
+  /** 中文姓名或暱稱（顯示在頁尾；留空時顯示 name） */
   nameZh: '',
 
   /** 對外的職稱（英文，主要顯示） */
-  roleEn: 'Computer Science Student & Developer',
+  roleEn: 'Student & Noob Developer',
 
   /** 對外的職稱（中文，次要顯示） */
-  role: '資訊工程學生 / 開發者',
+  role: '學生 / 菜鳥開發者',
 
   /** Hero 下方的一句話自我介紹 */
-  tagline: '主要用 Python 開發 Telegram 與 Discord Bot，把 AI 模型接進真的有人在用的工具裡。',
+  tagline: '用 Python 寫 Bot 與 AI 應用，把學到的東西做成真的能跑的服務。',
 
   /** 大頭貼圖片路徑（放在 public/images/），可替換成自己的照片 */
-  avatar: 'images/avatar.png',
-  avatarAlt: 'Wallace Chen 的個人頭像',
+  avatar: 'images/avatar.jpg',
+  avatarAlt: '陳品璁的照片',
 
   /** 主要 Email（會被組成 mailto: 連結） */
   email: 'wallacechen33@gmail.com',
 
   /** 所在地，未填寫時網站會自動隱藏這一項 */
-  location: '',
+  location: '台灣',
 
   /** Hero 下方與 About 使用的關注領域標籤 */
   focusAreas: [
     'Python Bot 開發',
     'AI / LLM 應用',
-    '強化學習',
-    'Telegram / Discord',
-    'Web 前端',
+    '遊戲開發',
+    'Bot 開發',
     '演算法',
+    'Web 前端',
   ],
 
   /** Hero 右上角的程式碼卡片（純裝飾，內容可自由修改） */
   codeCard: {
     filename: 'about-me.js',
-    variable: 'wallace',
+    variable: 'me',
     lines: [
-      { key: 'name', value: "'Wallace Chen'" },
-      { key: 'role', value: "'CS Student & Developer'" },
+      { key: 'name', value: "'陳品璁'" },
+      { key: 'role', value: "'Student & Developer'" },
       { key: 'focus', value: "['AI', 'Bots', 'RL']" },
       { key: 'building', value: "'Telegram AI assistants'" },
     ],
@@ -66,10 +66,10 @@ export const profile = {
     ],
     /** About 區塊右側的快速資訊，value 可以自由修改 */
     facts: [
-      { id: 'status', label: '目前身份', value: '資訊工程學生' },
-      { id: 'languages', label: '主要語言', value: 'Python / JavaScript / C++' },
-      { id: 'focus', label: '關注領域', value: 'AI / LLM、Bot 開發、強化學習' },
-      { id: 'github', label: 'GitHub', value: 'wallacechen0130' },
+      { id: 'status', label: '目前身份', value: '學生' },
+      { id: 'languages', label: '主要語言', value: 'C++ / Python / JavaScript' },
+      { id: 'focus', label: '關注領域', value: 'AI / LLM、Unity、Bot' },
+      { id: 'location', label: '所在地', value: '台灣' },
     ],
   },
 
@@ -135,11 +135,13 @@ export function getLink(id) {
   return activeLinks.find((link) => link.id === id)
 }
 
-/** Navbar 顯示用的縮寫：優先用 name 的英文字首，其次是 </> */
+/** Navbar 顯示用的縮寫：英文名字取字首，中文名字取第一個字 */
 export function getInitials(name = profile.name) {
   if (/\[|\]/.test(name)) return '</>'
   const parts = name.trim().split(/\s+/).filter(Boolean)
   if (!parts.length) return '</>'
+  // 中文名字只有一段時取第一個字（例如「陳品璁」→「陳」）
+  if (parts.length === 1 && !/^[\x20-\x7E]+$/.test(parts[0])) return parts[0].slice(0, 1)
   return parts
     .slice(0, 2)
     .map((part) => part[0])

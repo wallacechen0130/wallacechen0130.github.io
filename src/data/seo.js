@@ -13,7 +13,7 @@ export const seo = {
   locale: 'zh_TW',
   themeColor: '#0F4C81',
   description:
-    'Wallace Chen 的個人作品集 — 資訊工程學生，以 Python 開發 Telegram / Discord Bot 與 AI 應用，包含 LLM 助理、強化學習與前端作品。',
+    '陳品璁的個人作品集 — 資訊工程學生，以 Python 開發 Telegram / Discord Bot 與 AI 應用，包含 LLM 助理、強化學習與前端作品。',
   keywords: [
     'portfolio',
     '作品集',
