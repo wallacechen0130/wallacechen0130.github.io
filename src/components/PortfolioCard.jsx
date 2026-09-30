@@ -32,10 +32,14 @@ export default function PortfolioCard({ item, delay = 0 }) {
 
       <div className="portfolio-card__foot">
         <span className="portfolio-card__category">{item.category}</span>
-        <SmartLink className="portfolio-card__link" href={item.url}>
-          <span>開啟</span>
-          <Icon name="arrow-right" size={16} />
-        </SmartLink>
+        {item.url ? (
+          <SmartLink className="portfolio-card__link" href={item.url}>
+            <span>開啟</span>
+            <Icon name="arrow-right" size={16} />
+          </SmartLink>
+        ) : (
+          <span className="portfolio-card__pending">內容整理中</span>
+        )}
       </div>
     </Reveal>
   )

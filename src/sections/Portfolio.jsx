@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import Icon from '../components/Icon.jsx'
 import PlaceholderNotice from '../components/PlaceholderNotice.jsx'
 import PortfolioCard from '../components/PortfolioCard.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
@@ -50,11 +51,22 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="portfolio__grid">
-          {visibleItems.map((item, index) => (
-            <PortfolioCard key={item.id} item={item} delay={index * 70} />
-          ))}
-        </div>
+        {visibleItems.length ? (
+          <div className="portfolio__grid">
+            {visibleItems.map((item, index) => (
+              <PortfolioCard key={item.id} item={item} delay={index * 70} />
+            ))}
+          </div>
+        ) : (
+          <div className="portfolio__empty">
+            <Icon name="file" size={26} />
+            <p className="portfolio__empty-title">這個分類還沒有內容</p>
+            <p className="portfolio__empty-text">
+              把你的作品加進 <code>src/data/portfolio.js</code>
+              ，選到這個分類時就會出現在這裡。
+            </p>
+          </div>
+        )}
       </div>
     </section>
   )

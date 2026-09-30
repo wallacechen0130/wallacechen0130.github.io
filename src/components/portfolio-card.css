@@ -99,3 +99,8 @@
   color: var(--color-ink-muted);
   cursor: not-allowed;
 }
+
+.portfolio-card__pending {
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+}

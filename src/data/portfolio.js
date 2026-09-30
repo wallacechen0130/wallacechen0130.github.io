@@ -1,11 +1,11 @@
 /**
  * 作品集設定檔（學校報告、研究、實驗與其他文件）
  *
- * 下面的項目都是「範例資料」，請替換成你自己的作品：
- * 把 sample 改成 false（或直接刪掉這個欄位），就不會再顯示「範例」標記。
+ * 目前放的是「已經有實際內容」的項目（Tetris AI 的設計文件與實驗、
+ * GitHub 專案總覽）。School Projects 與 Reports 還沒有資料，
+ * 之後把項目補進來就會自動出現，不需要改任何程式碼。
  *
  * type 可用的值：'github' | 'pdf' | 'image' | 'report' | 'research' | 'experiment' | 'link'
- * url 還沒填時請保留 [PROJECT_URL]，網站會顯示成「未設定」而不是壞連結。
  */
 export const portfolioCategories = [
   'All',
@@ -29,58 +29,46 @@ export const portfolioTypes = {
 
 export const portfolioItems = [
   {
-    id: 'school-project-sample',
-    title: '範例：課程專題作品',
-    category: 'School Projects',
-    type: 'github',
-    sample: true,
-    description: '課程專題的內容說明：主題、你負責的部分，以及最後的成果。',
-    tags: ['C++', '資料結構'],
-    date: null,
-    url: '[PROJECT_URL]',
-  },
-  {
-    id: 'report-sample',
-    title: '範例：技術主題報告',
-    category: 'Reports',
-    type: 'pdf',
-    sample: true,
-    description: '報告檔案說明，例如主題、頁數或大綱，讓閱讀的人知道會看到什麼。',
-    tags: ['PDF', '書面報告'],
-    date: null,
-    url: '[PROJECT_URL]',
-  },
-  {
-    id: 'research-sample',
-    title: '範例：專題研究紀錄',
+    id: 'tetris-ai-design-doc',
+    title: 'TETR.IO 風格 Tetris AI 設計文件',
     category: 'Research',
     type: 'research',
-    sample: true,
-    description: '研究動機、方法與目前進度的整理，可以連結到文件或簡報。',
-    tags: ['AI', '研究'],
+    description:
+      '從自建規則引擎、啟發式教師，到模仿學習與 PPO 微調的完整設計文件，包含七級難度控制的定義與訓練流程說明。',
+    tags: ['Python', 'Reinforcement Learning', 'PPO'],
     date: null,
-    url: '[PROJECT_URL]',
+    url: 'https://github.com/wallacechen0130/tetr_bot/tree/main/docs',
   },
   {
-    id: 'experiment-sample',
-    title: '範例：模型實驗紀錄',
+    id: 'tetris-ai-experiment',
+    title: 'Tetris AI 訓練與難度保真度實驗',
     category: 'Experiments',
     type: 'experiment',
-    sample: true,
-    description: '實驗設定的參數、比較結果與觀察，例如不同提示詞對輸出的影響。',
-    tags: ['LLM', '實驗'],
+    description:
+      '用自建環境產生訓練資料、訓練模仿學習模型，再以 PPO 微調，最後用難度保真度報表檢查 AI 打起來像不像對應等級的玩家。',
+    tags: ['Imitation Learning', 'PPO', 'Jupyter'],
     date: null,
-    url: '[PROJECT_URL]',
+    url: 'https://github.com/wallacechen0130/tetr_bot',
   },
   {
-    id: 'cs-portfolio-sample',
-    title: '範例：資訊工程學習作品集',
-    category: 'Computer Science Portfolio',
-    type: 'link',
-    sample: true,
-    description: '彙整所有作品、學習歷程與成果的文件或連結，可用於升學備審資料。',
-    tags: ['作品集', '備審資料'],
+    id: 'telegram-ai-bot',
+    title: 'Telegram AI 助理（Bot + LLM 應用）',
+    category: 'Experiments',
+    type: 'experiment',
+    description:
+      '把 LLM 與視覺模型接進 Telegram 的實驗專案：模組化 async 架構、長任務進度更新，以及報告／簡報的自動產生流程。',
+    tags: ['Python', 'DeepSeek API', 'LLM'],
     date: null,
-    url: '[PROJECT_URL]',
+    url: null,
+  },
+  {
+    id: 'csv-portfolio-github',
+    title: 'GitHub 專案總覽',
+    category: 'Computer Science Portfolio',
+    type: 'github',
+    description: '所有 Bot、AI 與前端專案的原始碼都在 GitHub 上，包含這個作品集網站本身。',
+    tags: ['Open Source', 'GitHub'],
+    date: null,
+    url: 'https://github.com/wallacechen0130?tab=repositories',
   },
 ]

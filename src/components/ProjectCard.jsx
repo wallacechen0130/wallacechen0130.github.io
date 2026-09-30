@@ -49,10 +49,17 @@ export default function ProjectCard({ project, delay = 0 }) {
         </ul>
 
         <div className="project-card__actions">
-          <SmartLink className="btn btn--outline btn--sm" href={project.links.repo}>
-            <Icon name="github" size={16} />
-            <span>Source Code</span>
-          </SmartLink>
+          {project.links.repo ? (
+            <SmartLink className="btn btn--outline btn--sm" href={project.links.repo}>
+              <Icon name="github" size={16} />
+              <span>Source Code</span>
+            </SmartLink>
+          ) : (
+            <span className="project-card__private">
+              <Icon name="lock" size={15} />
+              <span>程式碼未公開</span>
+            </span>
+          )}
           {project.links.demo ? (
             <SmartLink className="btn btn--ghost btn--sm" href={project.links.demo}>
               <Icon name="external-link" size={16} />

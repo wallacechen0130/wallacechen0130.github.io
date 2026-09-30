@@ -10,7 +10,8 @@ import './contact.css'
 export default function Contact() {
   const email = getLink('email')
   const github = getLink('github')
-  const hasPlaceholders = containsPlaceholder(profile.email, profile.links)
+  // 只檢查「有開啟」的連結，停用的項目不算未填寫
+  const hasPlaceholders = containsPlaceholder(profile.email, activeLinks)
   const hasLocation = profile.location && !containsPlaceholder(profile.location)
 
   return (
@@ -31,11 +32,8 @@ export default function Contact() {
 
         <div className="contact__grid">
           <Reveal className="contact__card">
-            <h3 className="contact__card-title">一起做點東西</h3>
-            <p className="contact__card-text">
-              目前正在累積作品與學習經驗，對 AI 應用、遊戲開發與 Bot 專案特別有興趣。
-              有想法或機會都歡迎寄信給我。
-            </p>
+            <h3 className="contact__card-title">{profile.contact.heading}</h3>
+            <p className="contact__card-text">{profile.contact.text}</p>
 
             <div className="contact__actions">
               <SmartLink className="btn btn--primary btn--lg" href={email?.href}>

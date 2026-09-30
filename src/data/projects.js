@@ -7,71 +7,91 @@
  * featured: true 會讓卡片在桌面版佔兩欄，適合標記「主打專案」。
  * 建議只設定一個，連續兩張 featured 卡片會在 3 欄版面留下空隙。
  *
- * links.repo / links.demo 還沒填時請保留 [PROJECT_URL]，
- * 網站會把它顯示成「未設定」而不是壞連結。
+ * links.repo 填 null 表示程式碼未公開，卡片會顯示「程式碼未公開」而不是壞連結；
+ * 還沒填時請保留 [PROJECT_URL]，網站會顯示成「未設定」。
  */
 export const projects = [
   {
-    id: 'telegram-discord-bot',
-    title: 'Telegram / Discord Bot',
-    category: 'Bot',
+    id: 'telegram-deepseek-ai-bot',
+    title: 'Telegram DeepSeek AI Bot',
+    category: 'AI',
     featured: true,
     summary:
-      '在 Telegram 與 Discord 上運作的聊天機器人，串接 LLM API 產生回應，並處理指令解析、權限與錯誤重試。',
+      '可以直接在 Telegram 裡使用的 AI 助理：聊天、寫程式、看圖片、做報告、做簡報。後端以 DeepSeek API 為主要模型，採模組化 async 架構。',
     highlights: [
-      '統一的指令處理流程，兩個平台共用同一套核心邏輯',
-      '串接 LLM API，處理非同步回應與失敗重試',
-      '訊息長度、速率限制與例外狀況的處理',
+      '多輪對話記憶，超出上下文預算時自動摘要',
+      '圖片理解：OCR、圖表數據與視覺重點分析',
+      '報告與簡報逐頁產生，並整合 Canva Connect API 匯出 PPTX',
+      '長任務進度原地更新，長訊息自動分段不切斷 Markdown',
     ],
-    technologies: ['Python', 'Telegram Bot API', 'Discord API', 'LLM API'],
-    image: 'images/projects/telegram-discord-bot.svg',
-    imageAlt: 'Telegram / Discord Bot 專案示意圖',
-    links: { repo: '[PROJECT_URL]', demo: null },
+    technologies: ['Python', 'DeepSeek API', 'Telegram Bot API', 'Canva Connect API', 'asyncio'],
+    image: 'images/projects/deepseek-ai-bot.svg',
+    imageAlt: 'Telegram DeepSeek AI Bot 專案示意圖',
+    links: { repo: null, demo: null },
   },
   {
-    id: 'unity-game',
-    title: 'Unity Game',
-    category: 'Game',
-    featured: false,
-    summary: '使用 Unity 開發的 2D / 3D 遊戲專案，包含場景建置、C# 腳本與遊戲機制實作。',
-    highlights: ['場景與關卡建置', 'C# 腳本控制物件行為', '遊戲流程與狀態切換'],
-    technologies: ['Unity', 'C#', 'Game Design'],
-    image: 'images/projects/unity-game.svg',
-    imageAlt: 'Unity 遊戲專案示意圖',
-    links: { repo: '[PROJECT_URL]', demo: null },
-  },
-  {
-    id: 'ai-assistant',
-    title: 'AI Assistant',
+    id: 'tetrio-tetris-ai',
+    title: 'TETR.IO 風格 Tetris AI',
     category: 'AI',
-    summary: '以 LLM 為核心的助理工具，把模型接進實際的使用流程，而不只是單次的問答。',
-    highlights: ['prompt 與上下文組裝', '回應格式解析與錯誤處理', '依需求調整模型參數'],
-    technologies: ['Python', 'LLM API', 'Prompt Engineering'],
-    image: 'images/projects/ai-assistant.svg',
-    imageAlt: 'AI Assistant 專案示意圖',
-    links: { repo: '[PROJECT_URL]', demo: null },
+    summary:
+      '以「職業玩家風格」為目標的 Tetris AI：自建 TETR.IO 風格規則引擎、啟發式教師、模仿學習與 PPO 微調，並內建七級強度控制（PPS / APM / 反應時間 / 失誤 / 打法風格）。',
+    highlights: [
+      '自建規則引擎與七級難度保真度評估',
+      '啟發式教師 → 資料集 → 模仿學習 → PPO 微調的完整流程',
+      '支援 ONNX 匯出與 Google Drive 訓練資料同步',
+    ],
+    technologies: ['Python', 'Reinforcement Learning', 'PPO', 'Imitation Learning', 'Jupyter'],
+    image: 'images/projects/tetrio-tetris-ai.png',
+    imageAlt: 'TETR.IO 風格 Tetris AI 專案預覽圖',
+    links: { repo: 'https://github.com/wallacechen0130/tetr_bot', demo: null },
   },
   {
-    id: 'qwen-image-project',
-    title: 'Qwen Image Project',
-    category: 'AI',
-    summary: '使用 Qwen 影像生成模型的實驗專案，測試不同提示詞與參數對成品的影響。',
-    highlights: ['提示詞實驗與結果比較', '生成流程自動化', '成品整理與展示'],
-    technologies: ['Qwen', 'Python', 'Image Generation'],
-    image: 'images/projects/qwen-image.svg',
-    imageAlt: 'Qwen Image Project 專案示意圖',
-    links: { repo: '[PROJECT_URL]', demo: null },
+    id: 'telegram-discord-bot',
+    title: 'Telegram / Discord 圖片 Bot',
+    category: 'Bot',
+    summary:
+      '在 Telegram 與 Discord 上同時運作的 Bot，共用同一套核心邏輯，包含圖片儲存、指令處理與第三方 API 整合。',
+    highlights: [
+      '兩個平台共用核心，指令與事件各自處理',
+      '圖片儲存與管理機制',
+      '第三方 API 整合與互動元件',
+    ],
+    technologies: ['Python', 'Telegram Bot API', 'Discord API'],
+    image: 'images/projects/telegram-discord-bot.png',
+    imageAlt: 'Telegram / Discord Bot 專案預覽圖',
+    links: { repo: 'https://github.com/wallacechen0130/n_bot', demo: null },
   },
   {
-    id: 'cpp-algorithms',
-    title: 'C++ / Algorithm Projects',
-    category: 'Algorithm',
-    summary: '以 C++ 實作的演算法與資料結構練習，包含 APCS 題型與解題紀錄。',
-    highlights: ['排序、搜尋與圖論實作', '時間與空間複雜度分析', '解題筆記與程式碼整理'],
-    technologies: ['C++', 'Algorithms', 'Data Structures'],
-    image: 'images/projects/cpp-algorithms.svg',
-    imageAlt: 'C++ / Algorithm 專案示意圖',
-    links: { repo: '[PROJECT_URL]', demo: null },
+    id: 'tg-dc-sync-bot',
+    title: 'Telegram ↔ Discord 訊息同步 Bot',
+    category: 'Bot',
+    summary:
+      '把 Telegram 與 Discord 兩邊的訊息互相同步的 Bot，並支援歷史訊息回填，讓兩邊的對話維持在同一條時間線上。',
+    highlights: [
+      '雙向訊息轉發',
+      '歷史訊息回填（backfill）',
+      '同時管理兩個平台的 Bot 生命週期',
+    ],
+    technologies: ['Python', 'Telegram Bot API', 'Discord API', 'asyncio'],
+    image: 'images/projects/tg-dc-sync-bot.png',
+    imageAlt: 'Telegram 與 Discord 訊息同步 Bot 專案預覽圖',
+    links: { repo: 'https://github.com/wallacechen0130/tg-dc-bot', demo: null },
+  },
+  {
+    id: 'discord-image-bot',
+    title: 'Discord Image Bot',
+    category: 'Bot',
+    summary:
+      'Discord 隨機圖片 Bot：用指令從一般圖片池與大獎池抽圖，機率依圖片數量自動計算，支援多種圖片格式。',
+    highlights: [
+      '一般池與大獎池的分池抽獎機制',
+      '大獎機率依一般圖片數量自動計算',
+      '支援 png / jpg / jpeg / gif / webp',
+    ],
+    technologies: ['Python', 'Discord API'],
+    image: 'images/projects/discord-image-bot.svg',
+    imageAlt: 'Discord Image Bot 專案示意圖',
+    links: { repo: 'https://github.com/wallacechen0130/-BOT', demo: null },
   },
 ]
 

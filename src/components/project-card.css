@@ -18,7 +18,8 @@
 
 .project-card__media {
   position: relative;
-  aspect-ratio: 16 / 10;
+  /* 專案圖片建議 2:1（1200×600），與 GitHub 自動產生的預覽圖一致 */
+  aspect-ratio: 2 / 1;
   overflow: hidden;
   background: var(--color-surface-alt);
 }
@@ -109,4 +110,16 @@
   gap: 0.6rem;
   margin-top: auto;
   padding-top: var(--space-2);
+}
+
+.project-card__private {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-ink-muted);
+  font-size: 0.84rem;
+  font-weight: 600;
 }

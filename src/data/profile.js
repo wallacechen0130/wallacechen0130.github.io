@@ -9,61 +9,74 @@
  * 避免部署後出現連到不存在帳號的壞連結。
  */
 export const profile = {
-  /** 顯示在 Hero 主標、Navbar 與 SEO 標題：[YOUR_NAME] | Computer Science Student & Developer */
-  name: '陳品璁',
+  /** 顯示在 Hero 主標、Navbar 與 SEO 標題：Wallace Chen | Computer Science Student & Developer */
+  name: 'Wallace Chen',
 
-  /** 中文姓名或暱稱（顯示在頁尾，可留空） */
+  /** 中文姓名或暱稱（顯示在頁尾，可留空；留空時顯示 name） */
   nameZh: '',
 
   /** 對外的職稱（英文，主要顯示） */
-  roleEn: 'Student & Noob Developer',
+  roleEn: 'Computer Science Student & Developer',
 
   /** 對外的職稱（中文，次要顯示） */
-  role: '學生 / 菜鳥開發者',
+  role: '資訊工程學生 / 開發者',
 
   /** Hero 下方的一句話自我介紹 */
-  tagline: '我是一名正在學習資訊工程相關技術的學生，喜歡把想法做成真的能跑、能被使用的作品。',
+  tagline: '主要用 Python 開發 Telegram 與 Discord Bot，把 AI 模型接進真的有人在用的工具裡。',
 
   /** 大頭貼圖片路徑（放在 public/images/），可替換成自己的照片 */
-  avatar: '1790790811747.jpg',
-  avatarAlt: '個人照片',
+  avatar: 'images/avatar.png',
+  avatarAlt: 'Wallace Chen 的個人頭像',
 
   /** 主要 Email（會被組成 mailto: 連結） */
   email: 'wallacechen33@gmail.com',
 
   /** 所在地，未填寫時網站會自動隱藏這一項 */
-  location: '台灣',
+  location: '',
 
   /** Hero 下方與 About 使用的關注領域標籤 */
-  focusAreas: ['程式設計', 'AI / LLM 應用', '遊戲開發', 'Bot 開發', '演算法', '軟體開發'],
+  focusAreas: [
+    'Python Bot 開發',
+    'AI / LLM 應用',
+    '強化學習',
+    'Telegram / Discord',
+    'Web 前端',
+    '演算法',
+  ],
 
   /** Hero 右上角的程式碼卡片（純裝飾，內容可自由修改） */
   codeCard: {
     filename: 'about-me.js',
-    variable: 'student',
+    variable: 'wallace',
     lines: [
-      { key: 'name', value: "'[YOUR_NAME]'" },
+      { key: 'name', value: "'Wallace Chen'" },
       { key: 'role', value: "'CS Student & Developer'" },
-      { key: 'focus', value: "['AI', 'Game', 'Bots']" },
-      { key: 'status', value: "'building things that work'" },
+      { key: 'focus', value: "['AI', 'Bots', 'RL']" },
+      { key: 'building', value: "'Telegram AI assistants'" },
     ],
   },
 
   /** About Me 區塊 */
   about: {
-    intro: '正在學習資訊工程相關技術，持續把學到的東西變成實際能執行的專案。',
+    intro: '用 Python 寫 Bot 與 AI 應用，把學到的東西做成真的能跑的服務。',
     paragraphs: [
-      '我是一名正在學習資訊工程相關技術的學生。從 C++ 與演算法開始打底，慢慢延伸到 Python、Web 前端與 Unity 遊戲開發，目前大部分時間都花在把學到的東西做成實際的專案。',
-      '最有興趣的方向是 AI / LLM 應用：把模型 API 接進真的有人會用的工具與 Bot 裡，處理指令流程、錯誤重試，以及實際使用時才會遇到的問題。',
-      '我相信作品要能被使用才算完成，所以每個專案都會盡量做到可以跑、可以展示、可以讓別人直接操作。',
+      '我是一名正在學習資訊工程相關技術的學生，主要的開發語言是 Python。大部分時間都花在 Bot 開發上，從 Telegram 與 Discord 的訊息處理、指令設計，到第三方 API 整合與非同步架構，一步步把想法做成真的能跑的服務。',
+      '最近投入最多的是 AI 應用：把 LLM 與視覺模型接進 Bot 裡，做成能聊天、看得懂圖片、甚至能產生報告與簡報的助理；另外也做了一個 TETR.IO 風格的 Tetris AI，從自建規則引擎、啟發式教師，到模仿學習與 PPO 微調都是自己實作的。',
+      '除了 Bot，我也用 React + Vite 寫前端。這個作品集網站是自己設計、自己刻的，並透過 GitHub Actions 自動部署到 GitHub Pages。',
     ],
     /** About 區塊右側的快速資訊，value 可以自由修改 */
     facts: [
-      { id: 'status', label: '目前身份', value: '學生' },
-      { id: 'languages', label: '主要語言', value: 'C++ / Python / JavaScript / zh-TW' },
-      { id: 'focus', label: '關注領域', value: 'AI / LLM、Unity、Bot' },
-      { id: 'location', label: '所在地', value: '台灣' },
+      { id: 'status', label: '目前身份', value: '資訊工程學生' },
+      { id: 'languages', label: '主要語言', value: 'Python / JavaScript / C++' },
+      { id: 'focus', label: '關注領域', value: 'AI / LLM、Bot 開發、強化學習' },
+      { id: 'github', label: 'GitHub', value: 'wallacechen0130' },
     ],
+  },
+
+  /** Contact 區塊的文案 */
+  contact: {
+    heading: '一起做點東西',
+    text: '目前持續在做 Bot 與 AI 應用，對 LLM 整合、強化學習與前端開發都很有興趣。有想法、合作機會或實習資訊都歡迎寄信給我。',
   },
 
   /**
@@ -75,9 +88,9 @@ export const profile = {
       id: 'github',
       label: 'GitHub',
       icon: 'github',
-      href: 'https://github.com/[YOUR_GITHUB]',
-      handle: '@[YOUR_GITHUB]',
-      description: '所有專案原始碼與練習紀錄',
+      href: 'https://github.com/wallacechen0130',
+      handle: '@wallacechen0130',
+      description: '所有 Bot、AI 與前端專案的原始碼',
       enabled: true,
       primary: true,
     },
@@ -85,8 +98,8 @@ export const profile = {
       id: 'email',
       label: 'Email',
       icon: 'mail',
-      href: 'mailto:[YOUR_EMAIL]',
-      handle: '[YOUR_EMAIL]',
+      href: 'mailto:wallacechen33@gmail.com',
+      handle: 'wallacechen33@gmail.com',
       description: '合作、實習或任何問題都歡迎來信',
       enabled: true,
       primary: true,
