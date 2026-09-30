@@ -10,29 +10,29 @@
  */
 export const profile = {
   /** 顯示在 Hero 主標、Navbar 與 SEO 標題：[YOUR_NAME] | Computer Science Student & Developer */
-  name: '[YOUR_NAME]',
+  name: '陳品璁',
 
   /** 中文姓名或暱稱（顯示在頁尾，可留空） */
   nameZh: '',
 
   /** 對外的職稱（英文，主要顯示） */
-  roleEn: 'Computer Science Student & Developer',
+  roleEn: 'Student & Noob Developer',
 
   /** 對外的職稱（中文，次要顯示） */
-  role: '資訊工程學生 / 開發者',
+  role: '學生 / 菜鳥開發者',
 
   /** Hero 下方的一句話自我介紹 */
   tagline: '我是一名正在學習資訊工程相關技術的學生，喜歡把想法做成真的能跑、能被使用的作品。',
 
   /** 大頭貼圖片路徑（放在 public/images/），可替換成自己的照片 */
-  avatar: 'images/avatar.svg',
+  avatar: '1790790811747.jpg',
   avatarAlt: '個人照片',
 
   /** 主要 Email（會被組成 mailto: 連結） */
-  email: '[YOUR_EMAIL]',
+  email: 'wallacechen33@gmail.com',
 
   /** 所在地，未填寫時網站會自動隱藏這一項 */
-  location: '[YOUR_LOCATION]',
+  location: '台灣',
 
   /** Hero 下方與 About 使用的關注領域標籤 */
   focusAreas: ['程式設計', 'AI / LLM 應用', '遊戲開發', 'Bot 開發', '演算法', '軟體開發'],
@@ -59,10 +59,10 @@ export const profile = {
     ],
     /** About 區塊右側的快速資訊，value 可以自由修改 */
     facts: [
-      { id: 'status', label: '目前身份', value: '資訊工程學生' },
-      { id: 'languages', label: '主要語言', value: 'C++ / Python / JavaScript' },
+      { id: 'status', label: '目前身份', value: '學生' },
+      { id: 'languages', label: '主要語言', value: 'C++ / Python / JavaScript / zh-TW' },
       { id: 'focus', label: '關注領域', value: 'AI / LLM、Unity、Bot' },
-      { id: 'location', label: '所在地', value: '[YOUR_LOCATION]' },
+      { id: 'location', label: '所在地', value: '台灣' },
     ],
   },
 
