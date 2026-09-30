@@ -1,0 +1,116 @@
+.about__grid {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.about__aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 22rem;
+  justify-self: center;
+}
+
+.about__avatar-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.about__avatar {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about__facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.about__fact {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.75rem var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about__fact:last-child {
+  border-bottom: none;
+}
+
+.about__fact-label {
+  flex: none;
+  font-size: 0.82rem;
+  color: var(--color-ink-muted);
+}
+
+.about__fact-value {
+  font-size: 0.86rem;
+  font-weight: 550;
+  color: var(--color-ink);
+  text-align: right;
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about__paragraph {
+  margin: 0;
+  color: var(--color-ink-soft);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.about__focus {
+  margin-top: var(--space-2);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-alt);
+}
+
+.about__focus-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--color-ink);
+}
+
+.about__focus-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .about__grid {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--space-12);
+  }
+
+  .about__aside {
+    justify-self: start;
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-6));
+  }
+}

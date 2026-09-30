@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="網站分享預覽圖">
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B2A44" />
+      <stop offset="1" stop-color="#0F4C81" />
+    </linearGradient>
+    <pattern id="og-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og-bg)" />
+  <rect width="1200" height="630" fill="url(#og-grid)" />
+  <circle cx="1040" cy="120" r="220" fill="#7FB9E8" fill-opacity="0.12" />
+  <text x="90" y="250" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26" fill="#9FC9EC" letter-spacing="4">
+    COMPUTER SCIENCE STUDENT &amp; DEVELOPER
+  </text>
+  <text x="90" y="345" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="82" font-weight="700" fill="#FFFFFF">
+    [YOUR_NAME]
+  </text>
+  <text x="90" y="420" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="30" fill="#CFE5FA">
+    Portfolio — Projects, AI / LLM, Unity, Bots &amp; Algorithms
+  </text>
+  <rect x="90" y="480" width="120" height="6" rx="3" fill="#7FB9E8" />
+  <text x="90" y="560" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#7FB9E8">
+    PLACEHOLDER — 建議替換成 1200×630 的 PNG 圖片
+  </text>
+</svg>

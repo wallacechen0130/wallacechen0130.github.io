@@ -1,0 +1,84 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 讓 workflow 可以發佈到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時間只保留一次部署，新的 push 會取消進行中的舊部署
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 專案如果放在 repo 根目錄會自動用 "."，放在 portfolio/ 子資料夾也能運作
+      - name: Detect project directory
+        id: project
+        run: |
+          if [ -f portfolio/package.json ]; then
+            echo "dir=portfolio" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=." >> "$GITHUB_OUTPUT"
+          fi
+
+      # 使用者網站（<username>.github.io）base 是 /，其他 repo 是 /<repo-name>/
+      - name: Compute base path
+        id: base
+        run: |
+          if [[ "${{ github.event.repository.name }}" == *.github.io ]]; then
+            echo "base=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "base=/${{ github.event.repository.name }}/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ${{ steps.project.outputs.dir }}/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: npm ci
+
+      - name: Build
+        working-directory: ${{ steps.project.outputs.dir }}
+        env:
+          VITE_BASE: ${{ steps.base.outputs.base }}
+          VITE_SITE_URL: https://${{ github.repository_owner }}.github.io
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          # 如果 repo 還沒開啟 Pages，讓 workflow 自己開啟（Source = GitHub Actions）
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.project.outputs.dir }}/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

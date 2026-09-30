@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="Telegram / Discord Bot 專案圖片（預留位置）">
+  <defs>
+    <linearGradient id="bot-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B2A44" />
+      <stop offset="1" stop-color="#0F4C81" />
+    </linearGradient>
+    <pattern id="bot-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="#FFFFFF" stroke-opacity="0.07" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bot-bg)" />
+  <rect width="1200" height="750" fill="url(#bot-grid)" />
+  <g fill="none" stroke="#9FC9EC" stroke-width="3">
+    <rect x="150" y="140" width="380" height="180" rx="36" />
+    <rect x="640" y="250" width="410" height="190" rx="36" stroke="#FFFFFF" stroke-opacity="0.75" />
+    <path d="M240 320v40l40-40" fill="#9FC9EC" fill-opacity="0.35" />
+    <path d="M960 440v40l-40-40" fill="#FFFFFF" fill-opacity="0.25" />
+  </g>
+  <g fill="#9FC9EC">
+    <circle cx="240" cy="230" r="13" />
+    <circle cx="310" cy="230" r="13" fill-opacity="0.65" />
+    <circle cx="380" cy="230" r="13" fill-opacity="0.35" />
+    <circle cx="740" cy="345" r="13" fill="#FFFFFF" fill-opacity="0.9" />
+    <circle cx="810" cy="345" r="13" fill-opacity="0.55" />
+  </g>
+  <rect x="640" y="400" width="260" height="14" rx="7" fill="#FFFFFF" fill-opacity="0.35" />
+  <text x="80" y="620" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="34" font-weight="600" fill="#EAF4FF">
+    Telegram / Discord Bot
+  </text>
+  <text x="80" y="672" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" letter-spacing="3" fill="#7FB9E8">
+    PLACEHOLDER — REPLACE WITH YOUR SCREENSHOT
+  </text>
+</svg>

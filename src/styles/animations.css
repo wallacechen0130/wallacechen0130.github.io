@@ -1,0 +1,52 @@
+/* 動畫：刻意保持克制，只用在進場與 hover 的質感提升。 */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
+/* 捲動進場：使用 animation 而不是 transition，
+   避免和卡片自己的 hover transition 互相覆蓋。
+   使用 backwards 填滿模式，動畫結束後就交還原本樣式（hover 位移才不會失效）。 */
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  animation: fade-up 620ms var(--ease-out) var(--reveal-delay, 0ms) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,73 @@
+/* 設計變數：顏色、間距、字體與動畫時間都集中在這裡。
+   想調整整體風格時只需要改這個檔案。 */
+
+:root {
+  color-scheme: light;
+
+  /* 主要配色 */
+  --color-primary: #0f4c81;
+  --color-primary-strong: #0a3a63;
+  --color-primary-soft: #eaf4ff;
+  --color-ink: #2d3436;
+  --color-ink-soft: #4c565b;
+  --color-ink-muted: #7b868c;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f9fd;
+  --color-border: #e4eaf0;
+  --color-border-strong: #cbd6e0;
+
+  /* 版面 */
+  --container: 1120px;
+  --container-padding: 1.25rem;
+  --nav-height: 66px;
+
+  /* 間距 */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* 圓角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  /* 陰影 */
+  --shadow-xs: 0 1px 2px rgba(15, 37, 56, 0.04);
+  --shadow-sm: 0 2px 8px rgba(15, 37, 56, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 37, 56, 0.08);
+  --shadow-lg: 0 18px 44px rgba(15, 37, 56, 0.12);
+
+  /* 字體：使用系統字體，不載入外部字型檔以維持效能 */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+
+  /* 動畫 */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 150ms var(--ease-out);
+  --transition-base: 260ms var(--ease-out);
+  --transition-slow: 420ms var(--ease-out);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --container-padding: 1.75rem;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --container-padding: 2rem;
+    --nav-height: 70px;
+  }
+}
