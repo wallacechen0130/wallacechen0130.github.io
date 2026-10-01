@@ -29,6 +29,9 @@ const PIECE_SELECTOR = [
 
 const MAX_CHARS = 6000
 
+/** 有多少比例的字會留在地上變成殘骸（其餘的飛出畫面） */
+const DEBRIS_RATIO = 0.22
+
 function random(min, max) {
   return Math.random() * (max - min) + min
 }
@@ -41,7 +44,7 @@ function setMotion(element, { spin = 1, delayMax = 260, durMin = 1100, durMax = 
 }
 
 /** 把元素裡每個字拆成一個獨立的 span，讓它們可以各自飛散 */
-function shatterText(scope) {
+function shatterText(scope, viewport) {
   const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
     acceptNode: (node) => (node.nodeValue && node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT),
   })
@@ -55,6 +58,7 @@ function shatterText(scope) {
 
   let charCount = 0
 
+  // --- 第一階段：拆字（只寫 DOM，不做任何量測）---
   textNodes.forEach((textNode) => {
     const text = textNode.nodeValue
     if (charCount > MAX_CHARS) return
@@ -81,7 +85,47 @@ function shatterText(scope) {
     textNode.parentNode?.replaceChild(fragment, textNode)
   })
 
-  return textNodes.length
+  // --- 第二階段：挑出會變成殘骸的字 ---
+  // 排除兩種字：
+  //   1. 在掉落卡片裡面的字（卡片會把字一起帶走，落點會算錯）
+  //   2. 還沒進場的區塊（.reveal 但沒有 is-visible）裡的字，那些字本來就是透明的
+  const chars = [...scope.querySelectorAll('.boom-char')]
+  const candidates = chars.filter(
+    (char) => !char.closest('.boom-piece, .reveal:not(.is-visible)'),
+  )
+  const debrisTarget = Math.round(candidates.length * DEBRIS_RATIO)
+  const pool = candidates.slice()
+  const debris = []
+  for (let index = 0; index < debrisTarget && pool.length; index += 1) {
+    debris.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0])
+  }
+
+  // --- 第三階段：一次量測全部落點（避免讀寫交錯造成 reflow）---
+  const rects = debris.map((element) => element.getBoundingClientRect())
+
+  // --- 第四階段：一次寫入落點 ---
+  const groundY = viewport.height - 12
+  const bandHeight = Math.max(60, Math.min(140, viewport.height * 0.18))
+
+  debris.forEach((element, index) => {
+    const rect = rects[index]
+    const startX = rect.left + rect.width / 2
+    const startY = rect.top + rect.height / 2
+    // 指數越大越集中在底部，看起來像是被重力壓實的一堆
+    const depth = Math.pow(Math.random(), 2.1)
+    const landX = random(6, viewport.width - 6)
+    const landY = groundY - depth * bandHeight
+
+    element.classList.add('boom-char--debris')
+    element.style.setProperty('--dx', `${(landX - startX).toFixed(1)}px`)
+    element.style.setProperty('--dy', `${(landY - startY).toFixed(1)}px`)
+    element.style.setProperty('--rot', `${random(-80, 80).toFixed(0)}deg`)
+    element.style.setProperty('--delay', `${random(0, 260).toFixed(0)}ms`)
+    element.style.setProperty('--dur', `${random(950, 1500).toFixed(0)}ms`)
+    element.style.setProperty('--rest', random(0.6, 1).toFixed(2))
+  })
+
+  return { chars: chars.length, debris: debris.length }
 }
 
 /** 卡片、按鈕、圖片等「格子」整塊掉落 */
@@ -115,7 +159,7 @@ function pinStickyElements(original, clone, scrollY) {
   })
 }
 
-function buildPanel({ fragments, onRestore }) {
+function buildPanel({ fragments, debris, onRestore }) {
   const panel = document.createElement('div')
   panel.className = 'boom-panel'
   panel.setAttribute('role', 'dialog')
@@ -129,7 +173,7 @@ function buildPanel({ fragments, onRestore }) {
   const text = document.createElement('p')
   text.className = 'boom-panel__text'
   text.textContent = fragments
-    ? `炸出 ${fragments.toLocaleString('en-US')} 個碎片。別擔心，這只是特效，網站的資料一個字都沒少。`
+    ? `炸出 ${fragments.toLocaleString('en-US')} 個碎片，地上留下 ${debris.toLocaleString('en-US')} 塊殘骸。別擔心，這只是特效，網站的資料一個字都沒少。`
     : '已依你系統的「減少動態效果」設定簡化特效。別擔心，網站的資料一個字都沒少。'
 
   const actions = document.createElement('div')
@@ -188,10 +232,14 @@ export function explodePage({ root, onRestore }) {
   pinStickyElements(root, clone, scrollY)
 
   let fragments = 0
+  let debris = 0
   if (!reducedMotion) {
-    const textNodes = shatterText(clone)
+    // 先標記會整塊掉落的「格子」，再拆字：
+    // 這樣拆字時才知道哪些字在卡片裡面（那些字必須跟著卡片飛走，不能留下來當殘骸）
     const pieces = shatterPieces(clone)
-    fragments = textNodes + pieces
+    const textResult = shatterText(clone, { width: layoutWidth, height: window.innerHeight })
+    fragments = textResult.chars + pieces
+    debris = textResult.debris
   } else {
     layer.classList.add('is-instant')
   }
@@ -225,7 +273,7 @@ export function explodePage({ root, onRestore }) {
       if (restored) return
       layer.classList.add('is-settled')
       // 面板放在 aria-hidden 圖層之外，螢幕閱讀器才找得到「重新組裝」
-      panelWrap.appendChild(buildPanel({ fragments, onRestore: restore }))
+      panelWrap.appendChild(buildPanel({ fragments, debris, onRestore: restore }))
       document.body.appendChild(panelWrap)
       panelWrap.querySelector('button')?.focus()
     },

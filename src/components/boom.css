@@ -44,6 +44,12 @@ html.boom-locked {
     var(--delay, 0ms) forwards;
 }
 
+/* 會落地堆疊的殘骸（放在 .boom-char 之後，蓋掉上面的動畫） */
+.boom-layer .boom-stage .boom-char--debris {
+  animation: boom-debris-fall var(--dur, 1200ms) cubic-bezier(0.52, 0.05, 0.86, 0.62)
+    var(--delay, 0ms) forwards;
+}
+
 .boom-layer.is-instant .boom-stage {
   animation: boom-fade 280ms ease-in forwards;
 }
@@ -63,7 +69,8 @@ html.boom-locked {
   align-items: center;
   justify-content: center;
   gap: 0.85rem;
-  padding: 2rem 1.5rem;
+  /* 底部留白，讓地上的殘骸不會被面板蓋住 */
+  padding: 2rem 1.5rem clamp(90px, 20vh, 200px);
   text-align: center;
   pointer-events: auto;
   opacity: 0;
@@ -160,6 +167,28 @@ html.boom-locked {
   100% {
     transform: translate3d(var(--tx, 0px), 120vh, 0) rotate(var(--rot, 0deg));
     opacity: 0;
+  }
+}
+
+/* 掉到地面、堆疊起來的殘骸：有重力感、落地後不會消失 */
+@keyframes boom-debris-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  7% {
+    transform: translate3d(calc(var(--dx, 0px) * 0.05), -16px, 0)
+      rotate(calc(var(--rot, 0deg) * 0.1));
+    opacity: 1;
+  }
+  86% {
+    transform: translate3d(var(--dx, 0px), calc(var(--dy, 0px) + 5px), 0)
+      rotate(calc(var(--rot, 0deg) * 0.92));
+    opacity: var(--rest, 0.9);
+  }
+  100% {
+    transform: translate3d(var(--dx, 0px), var(--dy, 0px), 0) rotate(var(--rot, 0deg));
+    opacity: var(--rest, 0.9);
   }
 }
 
