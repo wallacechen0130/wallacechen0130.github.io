@@ -168,12 +168,12 @@ function buildPanel({ fragments, debris, onRestore }) {
 
   const title = document.createElement('p')
   title.className = 'boom-panel__title'
-  title.textContent = '💥 網頁被爆破了'
+  title.textContent = 'ヽ(*。>Д<)o゜'
 
   const text = document.createElement('p')
   text.className = 'boom-panel__text'
   text.textContent = fragments
-    ? `炸出 ${fragments.toLocaleString('en-US')} 個碎片，地上留下 ${debris.toLocaleString('en-US')} 塊殘骸。別擔心，這只是特效，網站的資料一個字都沒少。`
+    ? `我網站做那麼好怎麼可以炸我 \n 被炸成${fragments.toLocaleString('en-US')}塊人民碎片了X_X`
     : '已依你系統的「減少動態效果」設定簡化特效。別擔心，網站的資料一個字都沒少。'
 
   const actions = document.createElement('div')
