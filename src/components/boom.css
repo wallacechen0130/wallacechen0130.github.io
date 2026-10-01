@@ -94,27 +94,41 @@ html.boom-locked {
   margin-top: 0.5rem;
 }
 
-/* 頁尾的爆破按鈕 */
+/* 爆破按鈕（放在 Contact 區塊標題下方，用主色藍讓它醒目） */
 .boom-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.28rem 0.7rem;
-  border: 1px dashed var(--color-border-strong);
-  border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--color-ink-muted);
-  font-size: 0.78rem;
-  line-height: 1.5;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 650;
+  line-height: 1.2;
   cursor: pointer;
-  transition: color var(--transition-fast), border-color var(--transition-fast),
-    background-color var(--transition-fast);
+  box-shadow: 0 8px 22px rgba(15, 76, 129, 0.24);
+  transition: background-color var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast), box-shadow var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .boom-btn:hover {
-  color: #b93b2f;
-  border-color: #e3aaa3;
-  background: #fff6f5;
+  background: var(--color-primary-strong);
+  border-color: var(--color-primary-strong);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 76, 129, 0.3);
+}
+
+.boom-btn:active {
+  transform: translateY(0);
+}
+
+.boom-btn svg {
+  flex: none;
 }
 
 @keyframes boom-char-fall {

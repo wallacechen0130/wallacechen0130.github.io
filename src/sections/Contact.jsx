@@ -1,4 +1,5 @@
 import Icon from '../components/Icon.jsx'
+import BoomButton from '../components/BoomButton.jsx'
 import PlaceholderNotice from '../components/PlaceholderNotice.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
@@ -22,6 +23,11 @@ export default function Contact() {
           title="Get in Touch"
           lead="如果你對我的作品有興趣，或想討論合作、實習與技術問題，歡迎直接聯絡我。"
         />
+
+        <Reveal className="contact__boom">
+          <BoomButton />
+          <span className="contact__boom-hint">純視覺特效，按了可以一鍵復原</span>
+        </Reveal>
 
         {hasPlaceholders ? (
           <PlaceholderNotice>

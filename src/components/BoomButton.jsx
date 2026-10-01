@@ -40,7 +40,7 @@ export default function BoomButton() {
       onClick={handleClick}
       aria-label="一鍵爆破這個網頁（純視覺特效，可以復原）"
     >
-      <Icon name="zap" size={15} />
+      <Icon name="zap" size={18} />
       <span>{active ? '重新組裝' : '一鍵爆破這個網頁'}</span>
     </button>
   )
