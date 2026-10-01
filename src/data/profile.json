@@ -1,11 +1,11 @@
 {
   "name": "陳品璁",
-  "nameZh": "",
+  "nameZh": "Wallace Chen",
   "roleEn": "Student & Noob Developer",
   "role": "學生 / 菜鳥開發者",
   "tagline": "用 Python 寫 Bot 與 AI 應用，把學到的東西做成真的能跑的服務。",
   "avatar": "images/avatar.jpg",
-  "avatarAlt": "陳品璁的照片",
+  "avatarAlt": "憨仔的照片",
   "email": "wallacechen33@gmail.com",
   "location": "台灣",
   "focusAreas": [
@@ -20,10 +20,22 @@
     "filename": "about-me.js",
     "variable": "me",
     "lines": [
-      { "key": "name", "value": "'陳品璁'" },
-      { "key": "role", "value": "'Student & Developer'" },
-      { "key": "focus", "value": "['AI', 'Bots', 'RL']" },
-      { "key": "building", "value": "'Telegram AI assistants'" }
+      {
+        "key": "name",
+        "value": "'陳品璁'"
+      },
+      {
+        "key": "role",
+        "value": "'Student & Developer'"
+      },
+      {
+        "key": "focus",
+        "value": "['AI', 'Bots', 'RL']"
+      },
+      {
+        "key": "building",
+        "value": "'Telegram AI assistants'"
+      }
     ]
   },
   "about": {
@@ -34,10 +46,26 @@
       "除了 Bot，我也用 React + Vite 寫前端。這個作品集網站是自己設計、自己刻的，並透過 GitHub Actions 自動部署到 GitHub Pages。"
     ],
     "facts": [
-      { "id": "status", "label": "目前身份", "value": "學生" },
-      { "id": "languages", "label": "主要語言", "value": "C++ / Python / JavaScript" },
-      { "id": "focus", "label": "關注領域", "value": "AI / LLM、Unity、Bot" },
-      { "id": "location", "label": "所在地", "value": "台灣" }
+      {
+        "id": "status",
+        "label": "目前身份",
+        "value": "學生"
+      },
+      {
+        "id": "languages",
+        "label": "主要語言",
+        "value": "C++ / Python / JavaScript"
+      },
+      {
+        "id": "focus",
+        "label": "關注領域",
+        "value": "AI / LLM、Unity、Bot"
+      },
+      {
+        "id": "location",
+        "label": "所在地",
+        "value": "台灣"
+      }
     ]
   },
   "contact": {
