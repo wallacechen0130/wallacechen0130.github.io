@@ -14,7 +14,7 @@ function setMeta(attribute, key, content) {
 
 /**
  * 依資料檔內容更新 <title> 與社群分享用的 meta 標籤。
- * 標題格式：[YOUR_NAME] | Computer Science Student & Developer
+ * 標題格式：{profile.name} | {profile.roleEn}
  */
 export default function useDocumentMeta() {
   useEffect(() => {

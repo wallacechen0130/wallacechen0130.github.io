@@ -1,8 +1,8 @@
 {
   "name": "陳品璁",
   "nameZh": "Wallace Chen",
-  "roleEn": "Student & Noob Developer",
-  "role": "學生 / 菜鳥開發者",
+  "roleEn": "Student & Independent Developer",
+  "role": "學生 / 自學開發者",
   "tagline": "用 Python 寫 Bot 與 AI 應用，把學到的東西做成真的能跑的服務。",
   "avatar": "images/avatar.jpg",
   "avatarAlt": "憨仔的照片",
@@ -26,15 +26,15 @@
       },
       {
         "key": "role",
-        "value": "'Student & Developer'"
+        "value": "'CS Student & Independent Developer'"
       },
       {
         "key": "focus",
-        "value": "['AI', 'Bots', 'RL']"
+        "value": "['AI', 'Games', 'Bots']"
       },
       {
         "key": "building",
-        "value": "'Telegram AI assistants'"
+        "value": "'TETR.IO-style Tetris AI'"
       }
     ]
   },
